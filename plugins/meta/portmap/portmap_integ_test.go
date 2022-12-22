@@ -25,7 +25,7 @@ import (
 	"path/filepath"
 
 	"github.com/containernetworking/cni/libcni"
-	"github.com/containernetworking/cni/pkg/types/100"
+	types100 "github.com/containernetworking/cni/pkg/types/100"
 	"github.com/containernetworking/plugins/pkg/ns"
 	"github.com/containernetworking/plugins/pkg/testutils"
 	"github.com/coreos/go-iptables/iptables"
@@ -207,7 +207,7 @@ var _ = Describe("portmap integration tests", func() {
 
 				// Verify iptables rules are gone
 				_, err = ipt.List("nat", dnatChainName)
-				Expect(err).To(MatchError(ContainSubstring("iptables: No chain/target/match by that name.")))
+				Expect(err).To(HaveOccurred())
 
 				// Check that everything succeeded *after* we clean up the network
 				if !contOK {
