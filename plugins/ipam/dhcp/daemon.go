@@ -139,7 +139,7 @@ func (d *DHCP) setLease(clientID string, l *DHCPLease) {
 	d.leases[clientID] = l
 }
 
-//func (d *DHCP) clearLease(contID, netName, ifName string) {
+// func (d *DHCP) clearLease(contID, netName, ifName string) {
 func (d *DHCP) clearLease(clientID string) {
 	d.mux.Lock()
 	defer d.mux.Unlock()

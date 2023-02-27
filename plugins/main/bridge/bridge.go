@@ -127,8 +127,8 @@ func loadNetConf(bytes []byte, envArgs string) (*NetConf, string, error) {
 
 // calcGateways processes the results from the IPAM plugin and does the
 // following for each IP family:
-//    - Calculates and compiles a list of gateway addresses
-//    - Adds a default route if needed
+//   - Calculates and compiles a list of gateway addresses
+//   - Adds a default route if needed
 func calcGateways(result *current.Result, n *NetConf) (*gwInfo, *gwInfo, error) {
 
 	gwsV4 := &gwInfo{}
