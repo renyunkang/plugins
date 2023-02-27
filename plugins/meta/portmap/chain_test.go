@@ -36,7 +36,7 @@ var _ = Describe("chain tests", func() {
 	var testNs ns.NetNS
 	var cleanup func()
 
-	BeforeEach(func() {
+	beforeEach := func() {
 
 		// Save a reference to the original namespace,
 		// Add a new NS
@@ -84,9 +84,10 @@ var _ = Describe("chain tests", func() {
 			currNs.Set()
 		}
 
-	})
+	}
 
 	It("creates and destroys a chain", func() {
+		beforeEach()
 		defer cleanup()
 
 		tlChainName := testChain.entryChains[0]
@@ -152,6 +153,7 @@ var _ = Describe("chain tests", func() {
 	})
 
 	It("creates chains idempotently", func() {
+		beforeEach()
 		defer cleanup()
 
 		err := testChain.setup(ipt)
@@ -171,6 +173,7 @@ var _ = Describe("chain tests", func() {
 	})
 
 	It("deletes chains idempotently", func() {
+		beforeEach()
 		defer cleanup()
 
 		err := testChain.setup(ipt)
@@ -199,6 +202,7 @@ var _ = Describe("chain tests", func() {
 	})
 
 	It("deletes chains idempotently in parallel", func() {
+		beforeEach()
 		defer cleanup()
 		// number of parallel executions
 		N := 10
