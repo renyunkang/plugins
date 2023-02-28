@@ -46,7 +46,7 @@ var (
 // Array of different linux drivers bound to network device needed for DPDK
 var userspaceDrivers = []string{"vfio-pci", "uio_pci_generic", "igb_uio"}
 
-//NetConf for host-device config, look the README to learn how to use those parameters
+// NetConf for host-device config, look the README to learn how to use those parameters
 type NetConf struct {
 	types.NetConf
 	Device        string `json:"device"` // Device-Name, something like eth0 or can0 etc.
