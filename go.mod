@@ -1,6 +1,6 @@
 module github.com/containernetworking/plugins
 
-go 1.19
+go 1.20
 
 require (
 	github.com/Microsoft/hcsshim v0.8.20
