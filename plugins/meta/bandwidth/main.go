@@ -96,7 +96,7 @@ func parseConfig(stdin []byte) (*PluginConf, error) {
 }
 
 func getBandwidth(conf *PluginConf) *BandwidthEntry {
-	if conf.BandwidthEntry == nil && conf.RuntimeConfig.Bandwidth != nil {
+	if conf.RuntimeConfig.Bandwidth != nil {
 		return conf.RuntimeConfig.Bandwidth
 	}
 	return conf.BandwidthEntry
